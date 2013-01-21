@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Media: YouTube module.
+ */
+
+/**
+ * Implement hook_install().
+ */
+function media_cobra_install() {
+  return array();
+}
+
+/**
+ * Implement hook_uninstall().
+ */
+function media_cobra_uninstall() {
+  foreach (media_cobra_variable_default() as $variable => $value) {
+    media_cobra_variable_del($variable);
+  }
+  return array(array('success' => TRUE, 'query' => "Deleted all variables in the Media: YouTube namespace."));
+}
+
